@@ -1,6 +1,6 @@
 # WordPress Theme Development Starter (Bootstrap)
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.
+YOU WILL NEED TO HAVE AN APACHE SERVER / MYSQL DB SET UP AND RUNNING FOR THIS TO WORK.
 
   - Theme with Bootstrap configured and ready to go
   - Font Awesome 4.7.0 has been added
