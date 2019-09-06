@@ -17,7 +17,7 @@ if (settings.developmentMode === 'production'){
 }
 
 gulp.task('styles', function () {
-  return gulp.src('css/main.css')
+  return gulp.src('css/main.scss')
     .pipe(sass({ includePaths: ['node_modules'] }))
       .pipe(postcss(stylePostCss))
       .on('error', (error) => console.log(error.toString()))
@@ -48,7 +48,7 @@ gulp.task('watch', function () {
 
     browserSync.reload();
   });
-  gulp.watch('css/*.css', gulp.parallel('waitForStyles'));
+  gulp.watch('css/*.scss', gulp.parallel('waitForStyles'));
   gulp.watch(['js/*.js', 'js/index.js'], gulp.parallel('waitForScripts'));
 });
 

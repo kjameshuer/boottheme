@@ -1,0 +1,29 @@
+/*
+Theme Name: Boot
+Author: Kjhuer */
+
+/* RESET SOME OF BOOTSTRAP'S VARIABLES USING _CUSTOM.SCSS */
+@import "custom";
+
+/* THIS IMPORTS ALL OF BOOTSTRAP CSS, WHICH YOU MAY NOT NEED.
+ADD INDIVIDUAL PACKAGES AS NECESSARY IF YOU ARE CONCERNED
+ABOUT SIZE */
+@import "bootstrap/scss/bootstrap";
+@import "./header.scss";
+@import "./components.scss";
+
+body {
+  background: white;
+}
+
+.articles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  @include make-col(10);
+  @include media-breakpoint-up(lg) {
+    @include make-col(12);
+  }
+}

@@ -1,0 +1,36 @@
+.top-bar {
+  @include make-row();
+  .top-bar__mobile {
+    display: flex;
+    justify-content: flex-end;
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
+  }
+  .top-bar__desktop {
+    display: none;
+    justify-content: flex-end;
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+  }
+}
+.main-menu {
+  @include make-row();
+  .main-menu__site-info {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+      @include make-col(4);
+    }
+  }
+  .main-menu__menu {
+    display: none;
+    justify-content: flex-end;
+    @include make-col(8);
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+  }
+}
