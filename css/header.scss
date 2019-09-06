@@ -1,6 +1,5 @@
-.site-header{
-  @include box-shadow($tightShadow);
-  box-shadow: 2px 0px 4px rgba(0,0,0,0.3);
+.site-header {
+  box-shadow: $tightShadow;
   background: white;
   margin-bottom: 1vw;
 }
@@ -26,7 +25,7 @@
 }
 .main-menu {
   @include make-row();
-  .main-menu__menu-holder{
+  .main-menu__menu-holder {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

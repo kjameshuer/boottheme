@@ -1,10 +1,35 @@
 .article-card {
-  max-width: 300px;
-  @include make-col(12);
-  @include media-breakpoint-up(md) {
-    @include make-col(6);
+  margin-bottom: 1vw;
+  position: relative;
+  .card {
+    box-shadow: $tightShadow;
+    .card-title {
+      padding: 1vw 1vw 0 1vw;
+    }
+    .card-text {
+      padding: 0 1vw 2vw 1vw;
+    }
+    .card-more {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background: $primary;
+      color: white;
+      padding: 5px 10px;
+      border-top-left-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &:hover {
+      .card-more {
+        opacity: 1;
+        transition: opacity 0.5s;
+      }
+    }
   }
-  @include media-breakpoint-up(lg) {
-    @include make-col(4);
+  &.sticky {
+    max-width: 100% !important;
+    @include make-col(12);
   }
 }

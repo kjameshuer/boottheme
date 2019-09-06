@@ -16,9 +16,14 @@
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="top-bar__desktop">
-          <a href="#" class="btn">Login</a>
-          <a href="#" class="btn">Sign Up</a>
-          <span class="search-trigger js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
+          <?php
+          $topbarArgs = array(
+            'theme_location' => 'topbar-menu',
+            'container' => 'ul',
+            'menu_class' => 'nav'
+          );
+          wp_nav_menu($topbarArgs);
+          ?>
         </div>
       </div>
       <div class="main-menu">

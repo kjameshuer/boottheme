@@ -11,19 +11,12 @@ ABOUT SIZE */
 @import "bootstrap/scss/bootstrap";
 @import "./header.scss";
 @import "./components.scss";
+@import "./footer.scss";
 
 body {
   background: white;
 }
 
-.articles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin: auto;
-  @include make-col(10);
-  @include media-breakpoint-up(lg) {
-    @include make-col(12);
-  }
+.paginate-row {
+  justify-content: flex-end;
 }
