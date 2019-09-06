@@ -3,26 +3,30 @@ var gulp = require('gulp'),
   webpack = require('webpack'),
   browserSync = require('browser-sync').create(),
   postcss = require('gulp-postcss'),
-  rename = require('gulp-rename');
+  rename = require('gulp-rename'),
   rgba = require('postcss-hexrgba'),
-  cssnano = require('cssnano');
-  autoprefixer = require('autoprefixer'),
+  cssnano = require('cssnano'),
+  autoprefixer = require('gulp-autoprefixer'),
   sass = require('gulp-sass'),
   cssImport = require('postcss-import'),
   colorFunctions = require('postcss-color-function');
 
-var stylePostCss = [cssImport, rgba, colorFunctions, autoprefixer];
-if (settings.developmentMode === 'production'){
+var stylePostCss = [cssImport, rgba, colorFunctions];
+if (settings.developmentMode === 'production') {
   stylePostCss.push(cssnano);
 }
 
 gulp.task('styles', function () {
   return gulp.src('css/main.scss')
     .pipe(sass({ includePaths: ['node_modules'] }))
-      .pipe(postcss(stylePostCss))
-      .on('error', (error) => console.log(error.toString()))
-      .pipe(rename('style.css'))
-      .pipe(gulp.dest('./'));
+    .pipe(postcss(stylePostCss))
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .pipe(rename('style.css'))
+    .pipe(gulp.dest('./'))
+
+    .on('error', (error) => console.log(error.toString()));
 });
 
 gulp.task('scripts', function (callback) {

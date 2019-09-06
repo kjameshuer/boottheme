@@ -1,3 +1,10 @@
+.site-header{
+  @include box-shadow($tightShadow);
+  box-shadow: 2px 0px 4px rgba(0,0,0,0.3);
+  background: white;
+  margin-bottom: 1vw;
+}
+
 .top-bar {
   @include make-row();
   .top-bar__mobile {
@@ -19,6 +26,11 @@
 }
 .main-menu {
   @include make-row();
+  .main-menu__menu-holder{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   .main-menu__site-info {
     @include make-col(12);
     @include media-breakpoint-up(md) {
