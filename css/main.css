@@ -1,0 +1,17 @@
+/*
+Theme Name: Boot
+Author: Kjhuer */
+
+
+/* RESET SOME OF BOOTSTRAP'S VARIABLES USING _CUSTOM.SCSS */
+@import "custom";
+
+/* THIS IMPORTS ALL OF BOOTSTRAP CSS, WHICH YOU MAY NOT NEED.
+ADD INDIVIDUAL PACKAGES AS NECESSARY IF YOU ARE CONCERNED
+ABOUT SIZE */
+@import "bootstrap/scss/bootstrap";
+
+
+body{
+    background: blue;   
+}
