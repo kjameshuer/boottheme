@@ -1,13 +1,23 @@
 .article-card {
   margin-bottom: 1vw;
   position: relative;
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(12);
+  }
+  @include media-breakpoint-up(md) {
+    @include make-col(6);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
   .card {
     box-shadow: $tightShadow;
-    .card-title {
-      padding: 1vw 1vw 0 1vw;
-    }
-    .card-text {
-      padding: 0 1vw 2vw 1vw;
+    .card-text-holder {
+      @include common-padding();
+      .card-text{
+        word-break: break-word;
+      }
     }
     .card-more {
       display: block;
@@ -21,6 +31,17 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
+    .card-meta{
+      color: #959595;      
+      a{
+        color: #959595;
+        &:hover{
+          color:#5a5a5a;
+          text-decoration: none;
+        }
+      }
+    }
+
     &:hover {
       .card-more {
         opacity: 1;
@@ -30,6 +51,33 @@
   }
   &.sticky {
     max-width: 100% !important;
+    @include make-col-ready();
     @include make-col(12);
+  }
+}
+
+.related-card {
+  margin-bottom: 1vw;
+  @include make-col-ready();
+  @include media-breakpoint-up(sm) {
+    @include make-col(6);
+  }
+  @include media-breakpoint-up(lg) {
+    @include make-col(4);
+  }
+  .card {
+    .card-text-holder {
+      padding: 1vw 1vw 1vw 1vw;
+      .card-text{
+        word-break: break-word;
+      }
+    }
+    &.related {
+      flex-direction: row;
+      img {
+        height: 100%;
+        max-width: 100px;
+      }
+    }
   }
 }

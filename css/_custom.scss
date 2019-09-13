@@ -1,1 +1,76 @@
+// LAYOUT
+
+@mixin content-width {
+  max-width: 1140px;
+  width: 95%;
+  margin: 0 auto;
+}
+@mixin content-column {
+  flex-direction: column;
+}
+@mixin content-padding {
+  padding: 3vh 1vh;
+}
+@mixin common-padding {
+  padding: 1vh 1vh 1vh 1vh;
+}
+
+@mixin spread-apart {
+  justify-content: space-between;
+}
+
+// TYPOGRAPHY
+
+@mixin medium-text{
+  @include media-breakpoint-up(sm) {
+    font-size: 1.2em;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 1.6em;
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 1.8em;
+  }
+}
+
+// RESETS
+
+@mixin fix-input{
+  border: 0;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+@mixin rounded-input{
+  border-radius: 8vw;
+  padding: 15px 20px;
+}
+
+a{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
+// PRESETS
+
+$header-height : 100px;
+
+// DECORATION
 $tightShadow: 2px 0px 4px rgba(0, 0, 0, 0.3);
+
+.strike{
+  text-decoration: line-through;
+}
+
+// OVERRIDES
+
+.btn {
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

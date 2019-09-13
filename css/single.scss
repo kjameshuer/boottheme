@@ -1,0 +1,34 @@
+.single-content {
+  .hero {
+    background: $primary;
+  }
+  .hero-row {
+    padding: 5vw 0;
+  }
+  .content {
+    @include make-container();
+    .content__row {
+      @include make-row();
+      @include content-width();
+      @include content-padding();
+      @include content-column();
+    }
+    .content__prev-next{
+      @include make-row();
+      @include content-width();
+      @include spread-apart();
+    }
+  }
+}
+.single-extras {
+  @include make-container();
+  .single-extras__title {
+    @include make-row();
+    @include content-width();
+    @include common-padding();
+  }
+  .single-extras__row {
+    @include make-row();
+    @include content-width();
+  }
+}

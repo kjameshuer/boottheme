@@ -17,10 +17,9 @@
                 </div>
             <?php endif; ?>
         </div>
-
         <div>
 </footer>
-
+<?php get_template_part('template-parts/search-form'); ?>
 <?php wp_footer(); ?>
 
 </body>

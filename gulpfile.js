@@ -48,7 +48,7 @@ gulp.task('watch', function () {
     ghostMode: false
   });
 
-  gulp.watch('./**/*.php', function () {
+  gulp.watch(['./**/*.php', './*.php' ], function () {
 
     browserSync.reload();
   });

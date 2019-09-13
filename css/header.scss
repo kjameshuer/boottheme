@@ -1,7 +1,7 @@
 .site-header {
   box-shadow: $tightShadow;
   background: white;
-  margin-bottom: 1vw;
+  height: $header-height;
 }
 
 .top-bar {
@@ -31,17 +31,42 @@
     flex-wrap: wrap;
   }
   .main-menu__site-info {
+    @include make-col-ready();
     @include make-col(12);
     @include media-breakpoint-up(md) {
       @include make-col(4);
     }
   }
   .main-menu__menu {
-    display: none;
+   
     justify-content: flex-end;
-    @include make-col(8);
+    @include make-col-ready();
+    @include make-col(6);
     @include media-breakpoint-up(md) {
       display: flex;
     }
+  }
+
+  #main-menu__search{
+    @include make-col-ready();
+    @include make-col(2);
+    .spinner-loader {
+      top: 16px;
+      position: absolute;
+      right: 20px;
+      i {
+        animation: rotation 2s infinite linear;
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
   }
 }

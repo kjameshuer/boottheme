@@ -43,7 +43,9 @@
               ?>
             </nav>
           </div>
+          <div id="main-menu__search"><input type="text" placeholder="search" id="header-search"></div>
         </div> <!-- .container -->
       </div><!-- .main-menu  -->
     </div>
   </header>
+  <!-- .main-menu-search-trigger -->

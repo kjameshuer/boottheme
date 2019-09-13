@@ -1,5 +1,5 @@
 <?php
-$articleClass = "article-card col-4";
+$articleClass = "article-card";
 $trimWordCount = 20;
 if (is_sticky()) :
     $articleClass .= " sticky";
@@ -23,13 +23,16 @@ endif; ?>
             );
             ?>
         <?php endif; ?>
+        <div class="card-text-holder">
         <h4 class="card-title">
             <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <?php the_title(); ?>
             </a>
         </h4>
+        <p class="card-meta"><a href="<?php the_author_link(); ?>"><?php the_author();?></a> | <?php the_date('d  M  Y') ?></p>
         <p class="card-text"><?php echo wp_trim_words(get_the_content(), $trimWordCount); ?>
             <a class="card-more" href="<?php the_permalink(); ?>">....Read More</a>
         </p>
+        </div>
     </div>
 </article>

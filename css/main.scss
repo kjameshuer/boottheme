@@ -1,5 +1,5 @@
 /*
-Theme Name: Boot
+Theme Name: Bootandberg
 Author: Kjhuer */
 
 /* RESET SOME OF BOOTSTRAP'S VARIABLES USING _CUSTOM.SCSS */
@@ -10,13 +10,24 @@ ADD INDIVIDUAL PACKAGES AS NECESSARY IF YOU ARE CONCERNED
 ABOUT SIZE */
 @import "bootstrap/scss/bootstrap";
 @import "./header.scss";
+@import "./single.scss";
 @import "./components.scss";
+@import "./search.scss";
 @import "./footer.scss";
 
 body {
   background: white;
+  &.no-scroll{
+    overflow: hidden;
+  }
 }
-
+.page-content {
+  margin-top: 2vw;
+}
 .paginate-row {
+  @include make-row();
   justify-content: flex-end;
+}
+.articles {
+  @include make-row();
 }
