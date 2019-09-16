@@ -11,6 +11,7 @@ ABOUT SIZE */
 @import "bootstrap/scss/bootstrap";
 @import "./header.scss";
 @import "./single.scss";
+@import "./shop.scss";
 @import "./components.scss";
 @import "./search.scss";
 @import "./footer.scss";
@@ -30,4 +31,11 @@ body {
 }
 .articles {
   @include make-row();
+}
+.spinner-loader {
+  text-align: center;
+  i {
+    animation: rotation 2s infinite linear;
+    @include medium-text();
+  }
 }

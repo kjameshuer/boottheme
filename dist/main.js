@@ -86,6 +86,109 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./js/Category.js":
+/*!************************!*\
+  !*** ./js/Category.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+var Category =
+/*#__PURE__*/
+function () {
+  function Category() {
+    _classCallCheck(this, Category);
+
+    this.categoryCheckbox = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.category_checkbox');
+    this.categorySelectTimeout = undefined;
+    this.productContent = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.content__right');
+    this.currentlySelected = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.category_checkbox:checked');
+    this.loadingScreen = jquery__WEBPACK_IMPORTED_MODULE_0___default()('<div>').addClass('categories_loading').append('<div class="spinner-loader"><i class="fa fa-circle-o-notch" aria-hidden="true"></i></div>');
+    this.init();
+  }
+
+  _createClass(Category, [{
+    key: "init",
+    value: function init() {
+      this.categoryCheckbox.on('change', this.handleCategoryClick.bind(this));
+    }
+  }, {
+    key: "handleCategoryClick",
+    value: function handleCategoryClick() {
+      var _this = this;
+
+      clearInterval(this.categorySelectTimeout);
+      this.currentlySelected = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.category_checkbox:checked');
+      this.categorySelectTimeout = setTimeout(function () {
+        _this.initiateSearch();
+      }, 750);
+    }
+  }, {
+    key: "initiateSearch",
+    value: function initiateSearch() {
+      var _this2 = this;
+
+      var catIDs = '';
+      this.productContent.append(this.loadingScreen);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.each(this.currentlySelected, function (i, el) {
+        catIDs += el.getAttribute('value') + ',';
+      });
+      var requestString = catIDs.substring(0, catIDs.length - 1); // $.getJSON(`${siteData.site_url}/wp-json/boot/v1/category?catids=${requestString}`)
+      //     .done(results => {                
+      //         this.displayResults(results);
+      //     })
+      //     .fail(() => {
+      //         $('.categories_loading').remove();
+      //         console.log('there was an issue connecting to the endpoint')
+      //     })
+      // $('#category_filter').submit(e => {
+      //     e.preventDefault();
+      //     console.log('happening')
+
+      var filter = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#category_filter');
+      jquery__WEBPACK_IMPORTED_MODULE_0___default.a.ajax({
+        url: "".concat(siteData.site_url, "/wp-admin/admin-ajax.php"),
+        data: filter.serialize(),
+        // form data
+        type: filter.attr('method'),
+        // POST
+        beforeSend: function beforeSend(xhr) {
+          console.log("will send");
+          filter.find('button').text('Processing...'); // changing the button label
+        },
+        success: function success(data) {
+          console.log("data", data);
+
+          _this2.loadingScreen.remove();
+
+          jquery__WEBPACK_IMPORTED_MODULE_0___default()('.products').html(data); // insert data
+        },
+        fail: function fail(error) {
+          console.log("error", error);
+        }
+      });
+    }
+  }]);
+
+  return Category;
+}();
+
+/* harmony default export */ __webpack_exports__["default"] = (Category);
+
+/***/ }),
+
 /***/ "./js/Search.js":
 /*!**********************!*\
   !*** ./js/Search.js ***!
@@ -316,9 +419,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Search */ "./js/Search.js");
+/* harmony import */ var _Category__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Category */ "./js/Category.js");
+
 
 
 var search = new _Search__WEBPACK_IMPORTED_MODULE_1__["default"]();
+var category = new _Category__WEBPACK_IMPORTED_MODULE_2__["default"]();
 console.log('i am ready and working');
 
 /***/ }),

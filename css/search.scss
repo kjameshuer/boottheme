@@ -39,13 +39,7 @@
       margin-top: 30px;
     }
   }
-  .spinner-loader {
-    text-align: center;
-    i {
-      animation: rotation 2s infinite linear;
-      @include medium-text();
-    }
-  }
+  
 }
 
 .product-results {

@@ -21,8 +21,8 @@ function search_results($data)
     $searchQueryArgs = array(
         'post_type' => array('post', 'page', 'product'),
         's' => $cleanSearchTerm
-
     );
+    
     $searchQuery = new WP_Query($searchQueryArgs);
 
     $results = array(
